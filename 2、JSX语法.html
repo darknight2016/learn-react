@@ -3,8 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>JSX语法</title>
+
+	<script type="text/javascript" src="build/react.js"></script>
+	<script type="text/javascript" src="build/react-dom.js"></script>
+	<script type="text/javascript" src="build/browser.min.js"></script>
 </head>
 <body>
+	<div id="example"></div>
 	
+	<!-- JSX语法，遇到<开头，就用HTML规则解析，遇到代码块{就用JavaScript规则解析，如果遇到数组将会展开数组 -->
+	<script type="text/babel">
+		var names = [
+			'Alice',
+			'Emily',
+			'Kate'
+		];
+
+		ReactDOM.render(
+			<div>
+			{
+				names.map(function(name){
+					return <div>Hello,{name}!</div>
+				})
+			}
+			</div>,
+			document.getElementById('example')
+		);
+	</script>
 </body>
 </html>
